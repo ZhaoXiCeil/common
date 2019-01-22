@@ -3,7 +3,7 @@ package com.github.jayuc.common.act;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import com.github.jayu.common.iter.ILogger;
+import com.github.jayuc.common.iter.ILogger;
 
 /**
  * log4j 日志管理器
