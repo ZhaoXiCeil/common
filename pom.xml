@@ -2,17 +2,62 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+	<parent>
+       <groupId>org.sonatype.oss</groupId>
+       <artifactId>oss-parent</artifactId>
+       <version>7</version>
+   </parent>
+
   <groupId>com.github.jayuc</groupId>
   <artifactId>common</artifactId>
   <version>0.0.1</version>
   <packaging>jar</packaging>
 
   <name>common</name>
+  <description>common</description>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
+  <licenses>
+       <license>
+          <name>The Apache Software License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>actable</distribution>
+       </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>yujie</name>
+            <email>yuj@ahtsoft.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>https://github.com/jayuc/common.git</connection>
+        <developerConnection>https://github.com/jayuc/common.git</developerConnection>
+        <url>https://github.com/jayuc/common.git</url>
+        <tag>master</tag>
+    </scm>
+    
+    <distributionManagement>
+        <snapshotRepository>
+          <!-- 这个id需要在setting.xml中设置  --> 
+          <id>oss</id>
+          <name>OSS Snapshots Repository</name>
+          <!-- 这里的url就是Issue中回复的snapshots 的repo地址--> 
+          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>  
+        </snapshotRepository>
+        <repository>
+          <id>oss</id>
+          <name>OSS Staging Repository</name>
+          <!-- 这里的url就是Issue中回复的staging 的repo地址--> 
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+      </distributionManagement>
 
   <dependencies>
   
@@ -37,6 +82,46 @@
                 <encoding>UTF-8</encoding>
             </configuration>
 	  	 </plugin>
+  		<!-- Source -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-source-plugin</artifactId>
+			<version>3.0.1</version>
+			<executions>
+				<execution>
+					<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+ 				</execution>
+			</executions>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-javadoc-plugin</artifactId>
+			<version>3.0.1</version>
+			<executions>
+				<execution>
+					<phase>package</phase>
+					<goals>
+						<goal>jar</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-gpg-plugin</artifactId>
+			<version>1.6</version>
+			<executions>
+				<execution>
+				<phase>verify</phase>
+				<goals>
+					<goal>sign</goal>
+				</goals>
+				</execution>
+			</executions>
+ 			</plugin>
   	</plugins>
   	<finalName>jayuc-common-${project.version}</finalName>
   </build>
