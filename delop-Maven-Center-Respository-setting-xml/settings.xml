@@ -114,9 +114,6 @@ under the License.
         <id>oss</id> 
         <username>yj6661991</username> 
         <password>ZhaoxiYoucai@3289</password> 
-
-        <filePermissions>664</filePermissions>
-    	<directoryPermissions>775</directoryPermissions>
     </server>
 <!--
   <server>
