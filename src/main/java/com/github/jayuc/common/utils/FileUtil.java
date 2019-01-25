@@ -17,9 +17,9 @@ public class FileUtil {
 	
 	/**
 	 * 使用文件流方式复制文件
-	 * @param source
-	 * @param dest
-	 * @throws IOException
+	 * @param source 被复制文件
+	 * @param dest 复制到文件
+	 * @throws IOException 抛出异常
 	 */
 	public static void copyFileUsingFileStreams(File source, File dest)
 	        throws IOException {    
@@ -41,9 +41,9 @@ public class FileUtil {
 	
 	/**
 	 * 使用Java NIO 复制文件
-	 * @param source
-	 * @param dest
-	 * @throws IOException
+	 * @param source 被复制文件
+	 * @param dest 复制到文件
+	 * @throws IOException 抛出异常
 	 */
 	public static void copyFileUsingFileChannels(File source, File dest) throws IOException {    
         FileChannel inputChannel = null;    

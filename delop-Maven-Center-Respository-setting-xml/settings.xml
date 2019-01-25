@@ -111,7 +111,7 @@ under the License.
   <servers>
 
   	<server> 
-        <id>oss</id> 
+        <id>ossrh</id> 
         <username>yj6661991</username> 
         <password>ZhaoxiYoucai@3289</password> 
     </server>
